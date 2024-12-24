@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير وزارة التعليم</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #E0F7F9; /* لون فيروزي فاتح */
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 95%;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 1px solid #004d73;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #004d73, #007e92);
+            padding: 15px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .header img {
+            height: 60px; /* تكبير حجم الشعار */
+            width: auto;
+            margin-left: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* تأثير الظل */
+            border-radius: 5px;
+        }
+
+        .header-text {
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        .header-text p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 15px;
+        }
+
+        .fields {
+            flex: 2;
+            max-width: 60%;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            background: #F0F8FF; /* لون فيروزي فاتح للحقول */
+            border-radius: 5px;
+            border: 1px solid #007e92;
+            font-size: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 8px;
+            height: 40px;
+            transition: all 0.3s ease-in-out; /* تأثير عند التفاعل */
+        }
+
+        .field:hover {
+            transform: scale(1.02); /* تكبير بسيط عند المرور */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .field.large {
+            height: auto;
+        }
+
+        .field label {
+            font-weight: bold;
+            color: #004d73;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .field input, .field textarea {
+            border: none;
+            background: none;
+            outline: none;
+            font-size: 12px;
+            padding: 5px;
+            resize: none;
+        }
+
+        .field textarea {
+            height: 80px;
+        }
+
+        .shawahid {
+            flex: 1;
+            max-width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .shawahid-title {
+            font-weight: bold;
+            color: #004d73;
+            margin-bottom: 10px;
+        }
+
+        .image-box {
+            background: #E0F7F9; /* لون فيروزي فاتح قليلًا */
+            border: 1px solid #007e92;
+            border-radius: 5px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out; /* تأثير عند التفاعل */
+        }
+
+        .image-box:hover {
+            transform: scale(1.02); /* تكبير بسيط عند المرور */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-box span {
+            color: #004d73;
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .image-box input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background: #f0f8ff;
+            border-top: 1px solid #004d73;
+            font-size: 12px;
+            text-align: center;
+            color: #004d73;
+            font-weight: bold;
+        }
+
+        .footer-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .footer button {
+            padding: 8px 12px;
+            background: #004d73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer button:hover {
+            background: #003652;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-text">
+                <p>وزارة التربية والتعليم</p>
+                <p>الإدارة العامة للتعليم</p>
+                <p>مكتب التعليم بمنطقة الجوف</p>
+            </div>
+            <img src="education-logo.png" alt="شعار التعليم">
+        </div>
+        <div class="content">
+            <div class="fields">
+                <div class="field">
+                    <label>المنفذ:</label>
+                    <input type="text" placeholder="أدخل اسم المنفذ">
+                </div>
+                <div class="field">
+                    <label>مكان التنفيذ:</label>
+                    <input type="text" placeholder="أدخل مكان التنفيذ">
+                </div>
+                <div class="field">
+                    <label>المدرسة:</label>
+                    <input type="text" placeholder="أدخل اسم المدرسة">
+                </div>
+                <div class="field">
+                    <label>مدير المدرسة:</label>
+                    <input type="text" placeholder="أدخل اسم مدير المدرسة">
+                </div>
+                <div class="field">
+                    <label>تاريخ التنفيذ:</label>
+                    <input type="text" placeholder="أدخل تاريخ التنفيذ">
+                </div>
+                <div class="field large">
+                    <label>الأهداف:</label>
+                    <textarea placeholder="أدخل الأهداف"></textarea>
+                </div>
+                <div class="field large">
+                    <label>وصف البرنامج:</label>
+                    <textarea placeholder="أدخل وصف البرنامج"></textarea>
+                </div>
+            </div>
+            <div class="shawahid">
+                <div class="shawahid-title">الشواهد</div>
+                <div class="image-box">
+                    <span>تحميل صورة 1</span>
+                    <input type="file" accept="image/*">
+                </div>
+                <div class="image-box">
+                    <span>تحميل صورة 2</span>
+                    <input type="file" accept="image/*">
+                </div>
+                <div class="image-box">
+                    <span>تحميل صورة 3</span>
+                    <input type="file" accept="image/*">
+                </div>
+                <div class="image-box">
+                    <span>تحميل باركود</span>
+                    <input type="file" accept="image/*">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>جميع الحقوق محفوظة لدى مدرسة ثانوية اليرموك</p>
+            <p>برمجة المعلم صلاح خليفة الفالح</p>
+            <div class="footer-buttons">
+                <button>تحميل التقرير</button>
+                <button>تحميل بصيغة PDF</button>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF('p', 'mm', 'a4');
+        const report = document.getElementById('report');
+        await html2canvas(report).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdfWidth = doc.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            doc.save("report.pdf");
+        });
+    }
+
+    function downloadHTML() {
+        const element = document.createElement('a');
+        const report = document.getElementById('report').outerHTML;
+        const file = new Blob([report], { type: 'text/html' });
+        element.href = URL.createObjectURL(file);
+        element.download = "report.html";
+        document.body.appendChild(element);
+        element.click();
+    }
+</script>
+</body>
+</html>
